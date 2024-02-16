@@ -34,7 +34,7 @@ class UsersController {
             }
         }).catch(error => {
             console.error('Error fetching user by ID:', error);
-            res.status(ResponseStatus.INTERNAL_SERVER_ERROR).send('Something went wrong');
+            res.status(500).send('Something went wrong');
         });
     }
 
@@ -44,8 +44,9 @@ class UsersController {
 
         const user = new User();
 
-        user.findUserById(userIdToUpdate).then(putUser => {
+        user.findUserById(userId).then(putUser => {
             if (putUser) {
+                res.send('Put User');
                 // Estuve probando pero no se como hacer o donde guardar los cambios
             } else {
                 res.status(404).send('User not found');
@@ -58,20 +59,22 @@ class UsersController {
 
     delUserByID(req, res){
         const userDelete = req.params.id;
+        const user = new User();
 
-        user.findUserById(userId).then(user => {
-            if (user) {
+        //user.findUserById(userDelete).then(userFound => {
+            if (userDelete) {
+                res.send('Delete user with ID: ' + userDelete);
                 // Estuve probando pero no se como hacer o donde guardar los cambios
                 //res.send(user.delete(userDelete));
             } else {
                 res.status(ResponseStatus.NOT_FOUND).send('User not found');
             }
-        }).catch(error => {
+        /*}).catch(error => {
             console.error('Error fetching user by ID:', error);
-            res.status(ResponseStatus.INTERNAL_SERVER_ERROR).send('Something went wrong');
-        });
+            res.status(500).send('Something went wrong');
+        });*/
 
-        res.send ('user role' + userRole);
+        //res.send ('user role' + userRole);
     }
 
     getUserRole(req, res){
