@@ -1,8 +1,9 @@
-const router = require('express').Router()
+const router = require('express').Router();
+const path = require('path')
 
 router.get('',(req,res) => {
-    const url = pasth.join(__dirname,'..','views','index.html');
+    const url = path.join(__dirname,'..','views','index.html');
     res.sendFile(url);
-})
+});
 
-module.export = router;
+module.exports = router;
