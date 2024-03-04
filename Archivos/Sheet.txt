@@ -1,0 +1,7 @@
+-- Git
+git add .
+git commit -m "comment"
+git push <nombre del repositorio> <nombre de la rama>
+
+-- Undo mantener cambios
+git reset --soft HEAD~1

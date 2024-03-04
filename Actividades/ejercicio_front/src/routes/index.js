@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const path = require('path')
 
+const axios = require('axios');
+
 router.get('',(req,res) => {
     //const url = path.join(__dirname,'..','views','index.html');
     //res.sendFile(url);
