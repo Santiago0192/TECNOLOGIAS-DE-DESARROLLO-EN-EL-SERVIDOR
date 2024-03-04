@@ -1,0 +1,35 @@
+<h2>Mis Tareas</h2>
+{{#if userId}}
+    <ul>
+        {{#each todos}}
+        <li>{{id}} - {{title}}</li>
+        {{/each}}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Completed</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each todos}}
+                    <tr>
+                        <td>{{id}}</td>
+                        <td>{{titled}}</td>
+                        <td>
+                            {{#if completed}}
+                                <span>Si</span>
+                            {{else}}
+                                <span>No</span>
+                            {{/if}}
+                        </td>
+                    </tr>
+                <li>{{id}} - {{title}}</li>
+                {{/each}}
+            </tbody>
+        </table>
+    </ul>
+{{else}}
+    <p>Requiere UserID</p>
+{{/if}}
