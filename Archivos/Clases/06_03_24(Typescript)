@@ -1,0 +1,26 @@
+-- Instalar librerias predifinidas en typescript
+npm i -D @types/node
+
+npm i -Drimraf //Borrar carpetas
+
+--Buscar todos los archivos .ts
+./**/*.ts
+--Buscar todos los archivos .ts dentro de src
+./src/**/*.ts
+
+-- Crear tscconfig automaticamente
+npm tsc --init 
+-- Csript crear tscconfig automaticamente & borrar carpeta dist
+npm run build
+
+-- pkg_json SCRIPTS
+"start": "node dist/."
+"local": "ts-node src/index.ts"
+"build": "rimraf dist && tsc"
+"dev": "nodemon src/index.ts"
+
+
+
+
+--Investigar 
+tipo de dato interface
