@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div id="additional-options">
+    <a href="http://localhost:3000" class="back-button">&#8249;</a>    
+    <input type="text" id="searchInput" placeholder="Ingresar Valor" value="{{filtro}}">
+    <button id="searchButton" onclick="realizarBusqueda()"><i class="fa fa-search" ></i></button>
+</div>
+
+<div id="container">
+    {{#if articles}}
+    {{#each articles}}
+        <div class="card">
+        <h2>{{title}}</h2>
+        <img src="{{urlToImage}}" alt="Descripción de la imagen" style="max-width: 100%; border-radius: 6px;">
+        <p>{{description}}</p>
+        <a href="{{url}}" target="_blank">Leer mas</a>
+        </div>
+    {{/each}}
+    {{else}}
+    <p>No se encontraron noticias.</p>
+    {{/if}}
+</div>
+
+<script>
+    function realizarBusqueda() {
+        var userInput = document.getElementById('searchInput').value;
+        window.location.href = 'http://localhost:3000/noticias?filter=' + encodeURIComponent(userInput);
+    }
+</script>

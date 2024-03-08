@@ -1,0 +1,12 @@
+<div id="container">
+    <div id="searchTitle">Buscador</div>
+    <input type="text" id="searchInput" placeholder="Ingrese Texto">
+    <button id="searchButton" onclick="realizarBusqueda()">Buscar</button>
+</div>
+
+<script>
+    function realizarBusqueda() {
+        var userInput = document.getElementById('searchInput').value;
+        window.location.href = 'http://localhost:3000/noticias?filter=' + encodeURIComponent(userInput);
+    }
+</script>
