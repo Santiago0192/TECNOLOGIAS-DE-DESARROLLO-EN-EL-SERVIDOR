@@ -1,12 +1,7 @@
 -- Instalar librerias predifinidas en typescript
 npm i -D @types/node
-
 npm i -Drimraf //Borrar carpetas
-
---Buscar todos los archivos .ts
-./**/*.ts
---Buscar todos los archivos .ts dentro de src
-./src/**/*.ts
+npm i -g typescript
 
 -- Crear tscconfig automaticamente
 npm tsc --init 
@@ -20,7 +15,11 @@ npm run build
 "dev": "nodemon src/index.ts"
 
 
-
+--Puntos importantes
+--Buscar todos los archivos .ts
+./**/*.ts
+--Buscar todos los archivos .ts dentro de src
+./src/**/*.ts
 
 --Investigar 
 tipo de dato interface

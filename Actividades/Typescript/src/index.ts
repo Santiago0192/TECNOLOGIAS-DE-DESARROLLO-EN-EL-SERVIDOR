@@ -1,5 +1,5 @@
 import {User} from './types';
-import UserRole from 'types/user-role';
+import UserRole from './types/user-role';
 
 let name: string = 'Francisco';
 const array: Array<number | string> = [2,'Dos'];
@@ -13,4 +13,4 @@ const yo:User = {
 yo.email = 'email@email.com';
 yo.role = UserRole.CLIENT;
 
-console.log();
+console.log('Pruebas_2');
