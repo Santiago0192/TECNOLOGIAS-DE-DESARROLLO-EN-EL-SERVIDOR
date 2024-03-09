@@ -1,12 +1,32 @@
 <div id="container">
-    <div id="searchTitle">Buscador</div>
-    <input type="text" id="searchInput" placeholder="Ingrese Texto">
+    <div id="Title">Buscador</div>
+    <input type="text" id="searchInput" placeholder="Ingrese Texto" onkeydown="handleKeyDown(event)">
     <button id="searchButton" onclick="realizarBusqueda()">Buscar</button>
+    <p style="color: rgb(117, 117, 117);">Ya tienes una cuenta? <a href="http://localhost:3000/auth/login" style="color: rgb(187, 187, 187);">Iniciar sesion</a></p>
+    <p style="color: rgb(117, 117, 117);">No tienes una cuenta? <a href="http://localhost:3000/auth/signup" style="color: rgb(187, 187, 187);">Registrate</a></p>
 </div>
 
 <script>
+    function handleKeyDown(event) {
+        if (event.key === "Enter") {
+            realizarBusqueda();
+        }
+    }
+
     function realizarBusqueda() {
         var userInput = document.getElementById('searchInput').value;
-        window.location.href = 'http://localhost:3000/noticias?filter=' + encodeURIComponent(userInput);
+                
+        const currentURL = new URL(window.location.href);
+        const currentToken = currentURL.searchParams.get('token');
+
+        let newURL;
+
+        if (currentToken) {
+            newURL = `http://localhost:3000/noticias/${currentToken}?filter=${encodeURIComponent(userInput)}`;
+        } else {
+            newURL = `http://localhost:3000/auth/login`;
+        }
+
+        window.location.href = newURL;
     }
 </script>

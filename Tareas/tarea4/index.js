@@ -20,7 +20,7 @@ app.use(routes);
 
 //Connect to Database
 const db_url = process.env.DB_URL
-console.log('DB Url: ' + db_url);
+//console.log('DB Url: ' + db_url);
 async function connect() {
     try{
         await mongoose.connect(db_url);

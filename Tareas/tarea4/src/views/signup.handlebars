@@ -1,0 +1,55 @@
+<div id="container" ></div>
+    <div id="Title" >Register</div>
+    <form id="registroForm" >
+        <label class="label" for="nombre">Name:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
+        
+        <label class="label" for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+        
+        <label class="label" for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        
+        <button id="searchButton" type="button" onclick="registrarUsuario()" style=" margin-top: 10px;">Register</button>
+
+        <p style="color: rgb(117, 117, 117);">Ya tienes una cuenta? <a href="http://localhost:3000/auth/login" style="color: rgb(187, 187, 187);">Iniciar sesion</a></p>
+    </form>
+</div>
+
+<script>
+    function registrarUsuario() {
+        var nombre = document.getElementById('nombre').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+
+        var datosUsuario = {
+            name: nombre,
+            email: email,
+            password: password
+        };
+
+        fetch('http://localhost:3000/auth/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(datosUsuario)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error de red - ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Usuario registrado:', data);
+            const token = data.token;
+            const queryParams = new URLSearchParams({ token });
+
+            window.location.href = `http://localhost:3000/?${queryParams.toString()}`;
+        })
+        .catch(error => {
+            console.error('Error al registrar usuario:', error);
+        });
+    }
+</script>
