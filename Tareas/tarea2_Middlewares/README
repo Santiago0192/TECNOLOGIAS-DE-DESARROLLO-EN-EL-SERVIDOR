@@ -1,0 +1,34 @@
+
+# Tarea 2 - Creación de Middlewares
+Santiago Gutierrez
+
+## Instrucciones de ejecución
+Comando para correr el proyecto
+```bash
+npm start
+```
+
+Comando para nodemon
+```bash
+npm run dev
+```
+
+## Rutas
+Se debe mandar token=12345 y role[admin, user]
+GET /users?token=12345&role=admin
+
+Se debe correr primero el get para que se llene el array y se puedan consultar registros
+El Post requiere que se envie el ID a guardar /users/:id
+PUT /users/2?token=12345&role=admin
+
+Solo requiere authorización
+POST /users?token=12345&role=admin
+
+Consultar por ID /users/:id
+GET /users/2?token=12345&role=admin
+
+Borrar user por ID ID /users/:id
+DELETE /users/2?token=12345&role=admin
+
+## Consideraciones adicionales
+Se reuiere .env para funcionar (./.env.example)
