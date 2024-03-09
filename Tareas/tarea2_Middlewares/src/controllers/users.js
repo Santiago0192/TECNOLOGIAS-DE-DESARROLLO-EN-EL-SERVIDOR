@@ -46,7 +46,7 @@ class UsersController {
 
         user.findUserById(userId).then(putUser => {
             if (putUser) {
-                res.send('Put User');
+                res.send('Put User ID: ' + userId);
                 // Estuve probando pero no se como hacer o donde guardar los cambios
             } else {
                 res.status(404).send('User not found');
