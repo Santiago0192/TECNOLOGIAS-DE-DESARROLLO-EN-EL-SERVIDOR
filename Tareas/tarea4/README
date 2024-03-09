@@ -1,0 +1,29 @@
+# Tarea 4 - App de Noticias
+## Instrucciones de ejecución
+Comando para correr el proyecto
+```bash
+npm start
+```
+
+Comando para activar nodemon
+```bash
+npm run dev
+```
+
+## Rutas
+Pagina principal en ruta main
+
+Flujo de pagina:
+Main > Login/SignIn
+Main > Noticias(Solo si esta logeado con un token, si intenta buscar sin estar logeado dirije a login)
+
+Login > SignIn
+Login > Main(Si el login es exitoso)
+Login > (Falta pagina en caso de haber error)
+
+SignIn > LogIn
+SignIn > Main(Si se creo la cuenta exitosamente)
+
+
+## Adicionales
+Se requiere .env (./.env.example)
