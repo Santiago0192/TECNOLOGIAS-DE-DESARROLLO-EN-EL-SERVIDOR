@@ -1,0 +1,47 @@
+# Tarea 3 - Creación de CRUD con base de datos 
+
+## Instrucciones de ejecución
+Comando para correr el proyecto
+```bash
+npm start
+```
+
+Comando para activar nodemon
+```bash
+npm run dev
+```
+
+## Rutas
+Todas las rutas requieren rol
+
+Consultar todos los usuarios
+GET /users?role=admin
+
+Consultar usuario por ID, requiere ID
+GET /users/65d6d220f07a42a97d4f856b?role=admin
+
+Actualizar Usuario, requiere ID que se modificara y body:
+PUT /users/65ebbf109e90f86611d401bd?role=admin
+{
+    "role": "admin",
+    "name": "name2_1",
+    "email": "email2",
+    "password": "pas2",
+    "status": "status1"
+}
+
+Agregar usuario, se necesita body con estructura:
+POST /users?role=admin
+{
+    "role": "admin",
+    "name": "name1",
+    "email": "email1",
+    "password": "pas1",
+    "status": "status1"
+}
+
+Borrar usuarios, se necesita ID de usuario
+DELETE /users/65d6d220f07a42a97d4f856b?role=admin
+
+## Adicionales
+Se requiere .env (./.env.example)

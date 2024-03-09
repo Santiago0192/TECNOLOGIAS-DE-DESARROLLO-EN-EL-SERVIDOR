@@ -11,13 +11,16 @@ class UsersController {
 
         if (user_id) {
             return User.findById(user_id)
-                .then(response => {
-                    return res.status(200).send('User Found');
+            .then(user => {
+                if (user) {
+                    return res.status(200).json(user);
+                } else {
+                    return res.status(404).send('User not found');
                 }
-                ).catch(err => {
-                    return res.status(503).send('User not found');
-                }
-            );
+            })
+            .catch(err => {
+                return res.status(503).send('Error finding user');
+            });
         }
 
         return User.find({})
@@ -61,8 +64,8 @@ class UsersController {
             role: req.body.role
         }
 
-        if (user_id) {
-            return User.findByIdAndUpdate(user_id, data)
+        if (userId) {
+            return User.findByIdAndUpdate(userId, data)
                 .then(response => {
                     res.status(200).send(response);
                 }).catch(err => {
@@ -98,7 +101,8 @@ class UsersController {
         const data = {
             name: req.body.name,
             email: req.body.email,
-            password: hashPassword(req.body.password)
+            password: req.body.password
+            //password: hashPassword(req.body.password)
         }
 
         res.send('Registrar Usuario:' + userReg + ' Key: ' + userKey);
@@ -114,7 +118,8 @@ class UsersController {
     login(req, res){
         User.findOne({
             email: req.body.email,
-            password: hashPassword(req.body.password)
+            password: req.body.password
+            //password: hashPassword(req.body.password)
         }).then(response =>{
             if (response){
                 const data = {
