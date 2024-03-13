@@ -1,0 +1,12 @@
+{
+    "CompilerOptions":{
+        "target": "ES2022",
+        "outDir": "./dist",
+        "noImplicitAny": true,
+        "module": "NodeNext",
+        "esModuleInterop": true
+    },
+    "include": [
+        "src/**/*.ts"
+    ]
+}

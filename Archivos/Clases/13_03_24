@@ -1,0 +1,15 @@
+// Instalar dependencias
+npm i -D ts-node rimraf @types/node @types/express typescript nodemon
+npm i express multer
+npm i -D @types/multer
+
+
+// PKG JSON
+scripts[
+    "start": "node dist/.",
+    "dev": "nodemon scrd/index.ts",
+    "build": "rimraf dist && tsc"
+]
+
+// Tarea como funciona dile system
+//-- Crear carpeta si no existe y buscar si el archivo con ese nombre ya existe
